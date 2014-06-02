@@ -1,0 +1,54 @@
+.jumbotron {
+	background-color: #000000;
+	font-family: "Brush Script MT", cursive;
+	color: #B80000;
+	font-size: 60px;
+}
+td{
+    background-color: #080808;
+    color: #E0E0E0;    
+    cursor:pointer;
+    width:70px;
+    height:70px;   
+    text-align:center;
+    font-size: 24px;
+}
+
+.win {
+	color: #B80000;
+	font-weight: bold;
+	font-size: 32px;
+}
+
+.container, form {
+	margin-top: 30px;
+}
+
+.launch {
+	margin: 20px;	
+}
+
+table {
+    border-collapse: collapse;
+}
+table td, table th {
+    border: 5px solid #E0E0E0;
+}
+table tr:first-child td {
+    border-top: 0;
+}
+table tr:last-child td {
+    border-bottom: 0;
+}
+table tr td:first-child,
+table tr th:first-child {
+    border-left: 0;
+}
+table tr td:last-child,
+table tr th:last-child {
+    border-right: 0;
+}
+
+/*div {
+	text-align: center;
+}*/
