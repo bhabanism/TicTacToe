@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+<title>Tic Tac Toe</title>
+<link href="./lib/css/bootstrap.min.css" rel="stylesheet">
+<link href="./lib/css/dark-hive/jquery-ui-1.10.4.custom.css" rel="stylesheet">    
+<link href='./lib/css/tictac.css' rel='stylesheet'>
+         
+ <!--[if lt IE 9]>
+	<script src='./lib/js/html5shiv.js'></script>
+	<script src='./lib/js/respond.min.js'></script>
+ <![endif]-->
+<script src='./lib/js/jquery-1.10.2.js'></script>
+<script src='./lib/js/bootstrap.min.js'></script>
+<script src='./lib/js/jquery-ui-1.10.4.custom.js'></script>
+<script src='./lib/js/tictac.js'></script>
+</head>
+<body>	
+	
+	<div class='container'>		
+		<div class="row">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-6">
+				<div class="jumbotron">
+					<span>Tic Tac Toe</span>
+					<img src="./lib/images/tictac_60.png" alt="Tic Tac Toe" class="img-rounded" />
+				</div>
+			</div>
+			<div class="col-lg-3"></div>
+		</div>
+		 <div class="row">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-8">                             
+				<form role='form' class='form-horizontal'>
+					 <div class='form-group'>
+						<label for="gridSize">Select Grid Size</label>
+					 	<select name='gridSize' id='gridSize' class='form-control'>
+		                     <option value='10'>3</option>
+		                     <option value='15'>4</option>
+		                     <option value='20'>5</option>
+		                 </select>
+					 </div>		
+				</form>
+				<div id='tictactoe'></div>
+				<button id="button" class="launch ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" aria-disabled="false"><span class="ui-button-text">Start New Game</span></button>
+			</div>
+			<div class="col-lg-2"></div> 
+		</div>
+	</div>
+	
+	<div id='xwon' title="Player 1 won!">
+	  <p>Player 1 won the game!</p>
+	</div>
+	<div id='owon' title="Player 2 won!">
+	  <p>Player 2 won the game!</p>
+	</div>
+	<div id='draw' title="Match Drawen!">
+	  <p>The game is drawn!</p>
+	</div>
+	<div id='new' title="Play new game!">
+	  <p>Do you want to start a new game?</p>
+	</div>
+	<div id='invalid' title="Invalid!">
+	  <p>Select another box!</p>
+	</div>
+
+<script>
+$(function() {
+	gridSize = $('#gridSize').val();
+	createNewGame();
+	
+	$( "#draw" ).dialog({
+		autoOpen: false,
+		show: {
+		  effect: "explode",
+		  duration: 500
+		},
+		hide: {
+		  effect: "blind",
+	      duration: 100
+	    }
+	 });
+	
+	$( "#xwon" ).dialog({
+		autoOpen: false,
+		show: {
+		  effect: "explode",
+		  duration: 500
+		},
+		hide: {
+		  effect: "blind",
+	      duration: 100
+	    }
+	 });
+
+	$( "#owon" ).dialog({
+		autoOpen: false,
+		show: {
+		  effect: "explode",
+		  duration: 500
+		},
+		hide: {
+		  effect: "blind",
+	      duration: 100
+	    }
+	 });
+	
+	$( "#new" ).dialog({
+            autoOpen: false,
+             modal: true,
+             buttons: {
+               Yes: function() {
+                $( this ).dialog( "close" );
+                createNewGame();	       	
+               },
+               No: function() {
+                  $('#gridSize').val(gridSize);
+                  $( this ).dialog( "close" );
+               }
+            }
+        });	
+	
+	$( "#invalid" ).dialog({
+		autoOpen: false,
+		show: {
+		  effect: "blind",
+		  duration: 100
+		}
+	 });
+});
+</script>
+</body>
+</html>
+
